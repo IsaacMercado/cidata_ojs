@@ -8,6 +8,14 @@
 {$SERVERNAME} {
 	encode zstd gzip
 
+	# Los recursos de OJS llevan ?v=, así que se pueden cachear.
+	@coreAssets path /lib/* /js/*
+	header @coreAssets Cache-Control "public, max-age=604800, immutable"
+
+	# El tema y los archivos públicos pueden cambiar; una hora es prudente.
+	@mutableAssets path /plugins/* /public/*
+	header @mutableAssets Cache-Control "public, max-age=3600"
+
 	reverse_proxy app:80 {
 		header_up X-Forwarded-Proto {scheme}
 		header_up X-Forwarded-Host {host}

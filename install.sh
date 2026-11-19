@@ -94,7 +94,22 @@ fi
 export SMTP_PASSWORD_FILE
 
 # ------------------------------------------------------------
-# 2. Volúmenes, configuración y permisos
+# 2. Ajustes de red para enlaces con latencia o pérdida
+# ------------------------------------------------------------
+log "Aplicando ajustes de red"
+if [ -d /etc/sysctl.d ]; then
+  cat > /etc/sysctl.d/99-cidata-net.conf <<'EOF'
+net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+net.ipv4.tcp_mtu_probing = 1
+net.ipv4.tcp_slow_start_after_idle = 0
+EOF
+  modprobe tcp_bbr 2>/dev/null || true
+  sysctl --system >/dev/null 2>&1 || true
+fi
+
+# ------------------------------------------------------------
+# 3. Volúmenes, configuración y permisos
 # ------------------------------------------------------------
 log "Preparando volúmenes y configuración"
 install -d -m 700 "$APP_DIR/secrets"
@@ -121,7 +136,7 @@ chown -R 33:33 "$APP_DIR/volumes/private" "$APP_DIR/volumes/public"
 chown -R 999:999 "$APP_DIR/volumes/db"
 
 # ------------------------------------------------------------
-# 3. Imágenes y base de datos
+# 4. Imágenes y base de datos
 # ------------------------------------------------------------
 log "Descargando imágenes"
 docker compose pull db caddy app
@@ -143,7 +158,7 @@ if [ "$ready" != true ]; then
 fi
 
 # ------------------------------------------------------------
-# 4. OJS
+# 5. OJS
 # ------------------------------------------------------------
 log "Arrancando OJS"
 docker compose up -d app
@@ -294,9 +309,11 @@ chmod 664 "$APP_DIR/volumes/config/pkp.config.inc.php"
 log "Reiniciando OJS y arrancando Caddy"
 docker compose restart app
 docker compose up -d caddy
+# Caddy no recarga solo el Caddyfile montado; se reinicia para aplicar cambios.
+docker compose restart caddy
 
 # ------------------------------------------------------------
-# 5. Tareas programadas y respaldo diario
+# 6. Tareas programadas y respaldo diario
 # ------------------------------------------------------------
 log "Instalando cron"
 cat > /etc/cron.d/cidata-ojs <<CRON
@@ -309,7 +326,7 @@ chmod 644 /etc/cron.d/cidata-ojs
 chmod +x "$APP_DIR/scripts/backup.sh" "$APP_DIR/scripts/restore.sh"
 
 # ------------------------------------------------------------
-# 6. Resumen
+# 7. Resumen
 # ------------------------------------------------------------
 log "Listo"
 docker compose ps
