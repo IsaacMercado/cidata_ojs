@@ -62,7 +62,7 @@ Edita `terraform.tfvars` (copia de `terraform.tfvars.example`):
 
 ```hcl
 domain           = "revedacyt.cidata.gob.ve"
-ssh_allowed_cidr = "201.249.72.210/32"
+ssh_allowed_cidr = "203.0.113.10/32"
 ```
 
 Y aplica:

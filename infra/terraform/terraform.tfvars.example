@@ -10,7 +10,7 @@ bundle_id       = "small_3_0"
 ssh_public_key_path = "~/.ssh/cidata-ojs.pub"
 
 # Al inicio conviene 0.0.0.0/0 para no quedarte fuera si cambia tu IP.
-# Después restringe a tu red: "201.249.72.210/32".
+# Después restringe a tu red, por ejemplo: "203.0.113.10/32".
 ssh_allowed_cidr = "0.0.0.0/0"
 
 budget_limit_usd = 20
