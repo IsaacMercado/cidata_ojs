@@ -406,6 +406,40 @@ a:focus {
 	}
 }
 
+/* Menú desplegable del usuario: fondo blanco, texto oscuro.
+   Sin esto, la regla .pkp_navigation_user li a deja las opciones en blanco
+   sobre el fondo blanco del dropdown. */
+.pkp_navigation_user .dropdown-menu {
+	min-width: 190px;
+	padding: 6px 0;
+	border: 1px solid var(--cidata-line);
+	border-radius: var(--cidata-radius);
+	background: #fff;
+	box-shadow: 0 10px 30px rgba(6, 14, 25, 0.16);
+}
+
+.pkp_navigation_user .dropdown-menu li {
+	margin: 0;
+}
+
+.pkp_navigation_user .dropdown-menu a,
+.pkp_site_nav_menu .pkp_navigation_user .dropdown-menu a {
+	padding: 9px 14px;
+	color: var(--cidata-ink);
+}
+
+.pkp_navigation_user .dropdown-menu a:hover,
+.pkp_navigation_user .dropdown-menu a:focus,
+.pkp_site_nav_menu .pkp_navigation_user .dropdown-menu a:hover,
+.pkp_site_nav_menu .pkp_navigation_user .dropdown-menu a:focus {
+	background: var(--cidata-cream);
+	color: var(--cidata-cyan-dark);
+}
+
+.pkp_navigation_user .dropdown-menu .task_count {
+	color: var(--cidata-cyan-dark);
+}
+
 /* --------------------------------------------------------------------------
    Portada: hero
    -------------------------------------------------------------------------- */
