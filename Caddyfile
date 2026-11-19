@@ -16,6 +16,10 @@
 	@mutableAssets path /plugins/* /public/*
 	header @mutableAssets Cache-Control "public, max-age=3600"
 
+	# El CSS del tema se edita con frecuencia: que el navegador revalide.
+	@themeStyles path /plugins/themes/revedacyt/styles/*
+	header @themeStyles Cache-Control "no-cache"
+
 	reverse_proxy app:80 {
 		header_up X-Forwarded-Proto {scheme}
 		header_up X-Forwarded-Host {host}
