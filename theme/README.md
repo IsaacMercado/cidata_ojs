@@ -38,6 +38,14 @@ git pull
 sudo docker compose up -d app
 ```
 
+Si cambias el CSS, OJS puede mantener una copia concatenada en caché. Fuerza una
+recarga del navegador (`Ctrl+F5`) y, si hace falta, limpia la caché del
+contenedor:
+
+```bash
+sudo docker exec ojs-app sh -c 'rm -f /var/www/html/cache/*.css'
+```
+
 La primera vez hay que activarlo en el admin:
 
 **Ajustes de la revista → Web → Apariencia → Tema → REVEDACYT**

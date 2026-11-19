@@ -308,6 +308,8 @@ chmod 664 "$APP_DIR/volumes/config/pkp.config.inc.php"
 
 log "Reiniciando OJS y arrancando Caddy"
 docker compose restart app
+# OJS concatena CSS en cache; se limpia para que los cambios del tema se vean.
+docker exec ojs-app sh -c 'rm -f /var/www/html/cache/*.css' 2>/dev/null || true
 docker compose up -d caddy
 # Caddy no recarga solo el Caddyfile montado; se reinicia para aplicar cambios.
 docker compose restart caddy
