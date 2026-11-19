@@ -43,7 +43,8 @@ Solo Caddy publica puertos. OJS y MariaDB quedan en la red interna de Docker.
 ```
 
 Los datos **no** están en el repositorio. Viven en `./volumes/` y se respaldan
-aparte.
+aparte. El repositorio instala la plataforma; la revista (usuarios, envíos,
+números y archivos) se recupera desde los respaldos.
 
 ## Requisitos
 
