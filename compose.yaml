@@ -1,0 +1,80 @@
+name: cidata-ojs
+
+services:
+  caddy:
+    image: caddy:2.11.9-alpine
+    container_name: ojs-caddy
+    restart: unless-stopped
+    environment:
+      SERVERNAME: ${SERVERNAME}
+      ACME_EMAIL: ${ACME_EMAIL:-soporte@cidata.gob.ve}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./volumes/caddy/data:/data
+      - ./volumes/caddy/config:/config
+    networks:
+      - inside
+    depends_on:
+      - app
+
+  db:
+    image: mariadb:11.8
+    container_name: ojs-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      TZ: ${TZ:-America/Caracas}
+    volumes:
+      - ./volumes/db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    networks:
+      - inside
+
+  app:
+    # Imagen oficial de OJS. El tema se monta desde ./theme, sin construir
+    # una imagen propia: actualizar el tema es editar y reiniciar.
+    image: docker.io/pkpofficial/ojs:${OJS_VERSION:-3_5_0-6}
+    container_name: ojs-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      SERVERNAME: ${SERVERNAME}
+      PKP_TOOL: ojs
+      PKP_CLI_INSTALL: "0"
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      TZ: ${TZ:-America/Caracas}
+    expose:
+      - "80"
+    volumes:
+      - ./volumes/config/pkp.config.inc.php:/var/www/html/config.inc.php
+      - ./volumes/config/php.custom.ini:/usr/local/etc/php/conf.d/custom.ini:ro
+      - ./volumes/config/apache.pkp.conf:/etc/apache2/conf-enabled/pkp.conf
+      - ./volumes/private:/var/www/files
+      - ./volumes/public:/var/www/html/public
+      - ./theme/revedacyt:/var/www/html/plugins/themes/revedacyt
+    networks:
+      - inside
+
+networks:
+  inside:

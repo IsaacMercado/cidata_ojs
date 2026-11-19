@@ -1,0 +1,17 @@
+# Copia este archivo a terraform.tfvars y ajusta lo necesario.
+project         = "cidata-ojs"
+environment     = "prod"
+region          = "us-east-2"
+availability_zone = "us-east-2a"
+domain          = "revedacyt.cidata.gob.ve"
+bundle_id       = "small_3_0"
+
+# Clave pública SSH (la privada queda en ~/.ssh/cidata-ojs).
+ssh_public_key_path = "~/.ssh/cidata-ojs.pub"
+
+# Al inicio conviene 0.0.0.0/0 para no quedarte fuera si cambia tu IP.
+# Después restringe a tu red: "201.249.72.210/32".
+ssh_allowed_cidr = "0.0.0.0/0"
+
+budget_limit_usd = 20
+alert_email      = "admin@cidata.gob.ve"

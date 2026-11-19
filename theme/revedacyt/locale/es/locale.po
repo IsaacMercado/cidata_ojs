@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cidata\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-11-18 12:00-0400\n"
+"Last-Translator: CIDATA\n"
+"Language-Team: CIDATA\n"
+
+msgid "plugins.themes.revedacyt.name"
+msgstr "CIDATA · REVEDACYT"
+
+msgid "plugins.themes.revedacyt.description"
+msgstr "Tema nocturno para la Revista Venezolana de Divulgación Astronómica, Científica y Tecnológica (REVEDACYT), basado en la identidad visual de CIDATA."
+
+msgid "plugins.themes.revedacyt.option.showTopbar.label"
+msgstr "Barra institucional"
+
+msgid "plugins.themes.revedacyt.option.showTopbar.option"
+msgstr "Mostrar dirección, correo y redes sociales"
+
+msgid "plugins.themes.revedacyt.option.topbarAddress.label"
+msgstr "Dirección institucional"
+
+msgid "plugins.themes.revedacyt.option.topbarEmail.label"
+msgstr "Correo de contacto"
+
+msgid "plugins.themes.revedacyt.option.socialInstagram.label"
+msgstr "URL de Instagram"
+
+msgid "plugins.themes.revedacyt.option.socialYouTube.label"
+msgstr "URL de YouTube"
+
+msgid "plugins.themes.revedacyt.option.socialFacebook.label"
+msgstr "URL de Facebook"
+
+msgid "plugins.themes.revedacyt.option.socialTikTok.label"
+msgstr "URL de TikTok"
+
+msgid "plugins.themes.revedacyt.option.heroKicker.label"
+msgstr "Texto superior del hero"
+
+msgid "plugins.themes.revedacyt.option.showInstitutionalLogos.label"
+msgstr "Logos institucionales"
+
+msgid "plugins.themes.revedacyt.option.showInstitutionalLogos.option"
+msgstr "Mostrar los logos de CIDATA y MINCYT en el pie"
+
+msgid "plugins.themes.revedacyt.hero.openAccess"
+msgstr "Acceso abierto"
+
+msgid "plugins.themes.revedacyt.hero.submit"
+msgstr "Enviar un artículo"
+
+msgid "plugins.themes.revedacyt.about.more"
+msgstr "Leer más"
+
+msgid "plugins.themes.revedacyt.callout.kicker"
+msgstr "Convocatoria abierta"
+
+msgid "plugins.themes.revedacyt.callout.title"
+msgstr "Envío de manuscritos"
+
+msgid "plugins.themes.revedacyt.callout.text"
+msgstr "Investigaciones, revisiones y ensayos sobre astronomía, astrofísica, tecnologías aplicadas y divulgación científica."
+
+msgid "plugins.themes.revedacyt.current.kicker"
+msgstr "Número actual"

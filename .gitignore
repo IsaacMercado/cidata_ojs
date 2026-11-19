@@ -1,0 +1,79 @@
+# ============================================================
+# REVEDACYT / OJS — archivos que NO deben versionarse
+# ============================================================
+
+# --- Secretos y configuración local -------------------------
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Credenciales de etapas anteriores
+/config.ini
+/secrets/
+**/secrets/
+
+# --- Datos de ejecución de OJS y Docker ---------------------
+/volumes/
+/backups/
+**/*.sql
+**/*.sql.gz
+**/*.dump
+
+# --- Entorno local y material histórico ---------------------
+# No forman parte de la entrega; se conservan fuera del repo.
+/dev/
+/archive/
+/tutorial/
+
+# --- Artefactos y descargas --------------------------------
+/ojs-*.tar.gz
+/theme/*.zip
+/theme/*.tar.gz
+/dist/
+/build/
+
+# --- Python ------------------------------------------------
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+**/.venv/
+.ruff_cache/
+**/.ruff_cache/
+.pytest_cache/
+**/.pytest_cache/
+.mypy_cache/
+**/.mypy_cache/
+.coverage
+htmlcov/
+
+# --- OpenTofu / Terraform ----------------------------------
+**/.terraform/
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+terraform.tfvars
+*.auto.tfvars
+crash.log
+crash.*.log
+# Nota: .terraform.lock.hcl SÍ se versiona.
+
+# --- Pruebas y sistema -------------------------------------
+/.playwright-mcp/
+/test-results/
+/playwright-report/
+/coverage/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

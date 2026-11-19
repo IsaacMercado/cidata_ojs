@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cidata\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-11-18 12:00-0400\n"
+"Last-Translator: CIDATA\n"
+"Language-Team: CIDATA\n"
+
+msgid "plugins.themes.revedacyt.name"
+msgstr "CIDATA · REVEDACYT"
+
+msgid "plugins.themes.revedacyt.description"
+msgstr "Night theme for the Revista Venezolana de Divulgación Astronómica, Científica y Tecnológica (REVEDACYT), based on CIDATA's visual identity."
+
+msgid "plugins.themes.revedacyt.option.showTopbar.label"
+msgstr "Institutional bar"
+
+msgid "plugins.themes.revedacyt.option.showTopbar.option"
+msgstr "Show address, email and social links"
+
+msgid "plugins.themes.revedacyt.option.topbarAddress.label"
+msgstr "Institutional address"
+
+msgid "plugins.themes.revedacyt.option.topbarEmail.label"
+msgstr "Contact email"
+
+msgid "plugins.themes.revedacyt.option.socialInstagram.label"
+msgstr "Instagram URL"
+
+msgid "plugins.themes.revedacyt.option.socialYouTube.label"
+msgstr "YouTube URL"
+
+msgid "plugins.themes.revedacyt.option.socialFacebook.label"
+msgstr "Facebook URL"
+
+msgid "plugins.themes.revedacyt.option.socialTikTok.label"
+msgstr "TikTok URL"
+
+msgid "plugins.themes.revedacyt.option.heroKicker.label"
+msgstr "Hero kicker text"
+
+msgid "plugins.themes.revedacyt.option.showInstitutionalLogos.label"
+msgstr "Institutional logos"
+
+msgid "plugins.themes.revedacyt.option.showInstitutionalLogos.option"
+msgstr "Show CIDATA and MINCYT logos in the footer"
+
+msgid "plugins.themes.revedacyt.hero.openAccess"
+msgstr "Open access"
+
+msgid "plugins.themes.revedacyt.hero.submit"
+msgstr "Submit an article"
+
+msgid "plugins.themes.revedacyt.about.more"
+msgstr "Read more"
+
+msgid "plugins.themes.revedacyt.callout.kicker"
+msgstr "Call for papers"
+
+msgid "plugins.themes.revedacyt.callout.title"
+msgstr "Submissions open"
+
+msgid "plugins.themes.revedacyt.callout.text"
+msgstr "Research, reviews and essays on astronomy, astrophysics, applied technologies and science communication."
+
+msgid "plugins.themes.revedacyt.current.kicker"
+msgstr "Current issue"
